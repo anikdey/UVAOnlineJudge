@@ -1,30 +1,24 @@
-package beg;
+package recap;
 
 import java.util.Scanner;
 
 public class Problem11172 {
 
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		int counter = 1;
-		int textCase = in.nextInt();
-		while(counter<=textCase) {
-			
-			int firstNumber = in.nextInt();
-			int secondNumber = in.nextInt();
-			
-			if(firstNumber>secondNumber) {
+		Scanner input = new Scanner(System.in);
+		int testCase = input.nextInt();
+		for(int i=1; i<=testCase; i++) {
+			int firstInput = input.nextInt();
+			int secondInput = input.nextInt();
+			if(firstInput>secondInput) {
 				System.out.println(">");
-			} else if(firstNumber<secondNumber) {
+			} else if(firstInput<secondInput) {
 				System.out.println("<");
 			} else {
 				System.out.println("=");
 			}
-				
-			counter++;
 		}
-		in.close();
-
+		input.close();
 	}
 
 }

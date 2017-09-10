@@ -1,26 +1,24 @@
-package beg;
+package recap;
 
 import java.util.Scanner;
 
 public class Problem10783 {
 
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		int testCase = in.nextInt();
-		int counter = 1;
-		while(counter<=testCase) {
-			int from = in.nextInt();
-			int to = in.nextInt();
-			int total = 0;
-			for(int i = from; i<=to; i++) {
-				if(i%2==1) {
-					total += i;
+		Scanner input = new Scanner(System.in);
+		int testCase = input.nextInt();
+		for(int i=1; i<=testCase; i++) {
+			int from = input.nextInt();
+			int to = input.nextInt();
+			int sum=0;
+			for(int x=from; x<=to; x++) {
+				if(x%2==1) {
+					sum+=x;
 				}
 			}
-			System.out.println("Case "+counter+": "+total);
-			counter++;
+			System.out.println("Case "+i+": "+sum);
 		}
-		in.close();
+		input.close();
 	}
 
 }

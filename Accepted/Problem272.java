@@ -1,17 +1,20 @@
-package beg;
+package recap;
 
 import java.util.Scanner;
 
 public class Problem272 {
-
 	public static void main(String[] args) {
-		boolean isStartingPoint = true;
-		Scanner in = new Scanner(System.in);
-		while(in.hasNextLine()) {
-			String userString = in.nextLine();
+		Scanner input = new Scanner(System.in);
+		//while(input.hasNextLine()) {
+			String userInput = input.nextLine();
+			//System.out.println(userInput);
+			int length = userInput.length();
 			StringBuffer sb = new StringBuffer("");
-			for(int i = 0; i<userString.length(); i++) {
-				if(userString.charAt(i)== '"') {
+			boolean isStartingPoint = true;
+			/**/
+			for(int i=0; i<length; i++) {
+				char currentChar = userInput.charAt(i);
+				if( currentChar == '"' ) {
 					if(isStartingPoint) {
 						sb.append("``");
 						isStartingPoint = false;
@@ -19,13 +22,13 @@ public class Problem272 {
 						sb.append("''");
 						isStartingPoint = true;
 					}
-				} else {
-					sb.append(userString.charAt(i));
-				}
+ 				} else {
+ 					sb.append(currentChar);
+ 				}
 			}
+			
 			System.out.println(sb);
-		}
-		in.close();
+		//}
+		input.close();
 	}
-
 }

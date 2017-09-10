@@ -1,49 +1,40 @@
-package volumeOne;
+package recap;
 
 import java.util.Scanner;
 
 public class Problem100 {
-	private static int i, j;
+
 	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
 		
-		
-		Scanner userInput = new Scanner(System.in);
-		
-		while(userInput.hasNextInt()){
-			i = userInput.nextInt();
-			j = userInput.nextInt();
-			
-			int counter = 0;
-			int currentCycleLenght = 0;
-			
-			int from = Math.min(i, j);
-			int to = Math.max(i, j);
-			
-			for(int x = from; x <= to; x++) {
-				currentCycleLenght = countCycleLength(x, 1);
-				if(counter < currentCycleLenght) {
-					counter = currentCycleLenght;
+		while(input.hasNext()) {
+			int firstInput = input.nextInt();
+			int secondInput = input.nextInt();
+			int from = Math.min(firstInput, secondInput);
+			int to = Math.max(firstInput, secondInput);
+			int maxCycle = 0;
+			for( int i = from; i <= to; i++ ) {
+				int tempCycle = calculateCycle(i);
+				if( tempCycle >= maxCycle ) {
+					maxCycle = tempCycle;
 				}
 			}
-			System.out.printf("%d %d %d\n", i , j, counter);
+			System.out.println(firstInput+" "+secondInput+" "+maxCycle);
 		}
-		userInput.close();
+		input.close();
 	}
 	
-	public static int countCycleLength(int number, int lenght) {
-		
-		if(number>1) {
-			if( number % 2 == 0 ) {
-				number /= 2;
+	public static int calculateCycle(int temp) {
+		int tempCycle = 1;
+		while( temp != 1 ) {
+			if( temp % 2 == 1 ) {
+				temp = 3 * temp + 1;
 			} else {
-				number = (3 * number)  + 1;
+				temp = temp / 2;
 			}
-			lenght++;
-			return countCycleLength(number, lenght);
-		} else {
-			return lenght;
+			tempCycle++;
 		}
+		return tempCycle;
 	}
-	
-	
+
 }
