@@ -1,3 +1,4 @@
+package easy;
 import java.util.Scanner;
 
 public class Problem108 {
